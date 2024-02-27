@@ -1,4 +1,20 @@
 #include <windows.h>
+#include <tchar.h>
+#include <windows.h>
+#include <stdio.h>
+#include <string>
+
+/*  Declare Windows procedure  */
+LRESULT CALLBACK WindowProcedure (HWND, UINT, WPARAM, LPARAM);
+
+HWND textfield, button;
+
+/*  Make the class name into a global variable  */
+TCHAR szClassName[ ] = _T("CodeBlocksWindowsApp");
+TCHAR textsave1[20];
+TCHAR textsave2[20];
+HWND TextBox1;
+HWND TextBox2;
 
 /* This is where all the input to the window goes to */
 LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
@@ -55,7 +71,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	/*
 		This is the heart of our program where all input is processed and 
-		sent to WndProc. Note that GetMessage blocks code flow until it receives something, so
+		sent to WndProc. No2te that GetMessage blocks code flow until it receives something, so
 		this loop will not produce unreasonably high CPU usage
 	*/
 	while(GetMessage(&msg, NULL, 0, 0) > 0) { /* If no error is received... */
